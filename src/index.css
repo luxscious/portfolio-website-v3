@@ -1,0 +1,124 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+  background: #0a0507;
+}
+
+
+/* Keep navbar and starfield pinned — only page content slides */
+::view-transition-group(starfield),
+::view-transition-group(navbar) {
+  animation: none;
+}
+
+/* ── View Transitions API — directional page slides ── */
+@keyframes vt-slide-from-right {
+  from { transform: translateX(10px); }
+}
+@keyframes vt-slide-to-left {
+  to   { transform: translateX(-10px); }
+}
+@keyframes vt-slide-from-left {
+  from { transform: translateX(-10px); }
+}
+@keyframes vt-slide-to-right {
+  to   { transform: translateX(10px); }
+}
+
+/* Landing → Resume (forward) */
+html[data-nav-dir="forward"]::view-transition-old(root) {
+  animation: 100ms ease-in vt-slide-to-left both;
+}
+html[data-nav-dir="forward"]::view-transition-new(root) {
+  animation: 100ms ease-out vt-slide-from-right both;
+}
+
+/* Resume → Landing (back) */
+html[data-nav-dir="back"]::view-transition-old(root) {
+  animation: 100ms ease-in vt-slide-to-right both;
+}
+html[data-nav-dir="back"]::view-transition-new(root) {
+  animation: 100ms ease-out vt-slide-from-left both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation: none;
+  }
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  overflow-y: auto;
+  overflow-x: hidden;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+body::-webkit-scrollbar {
+  display: none;
+}
+
+/* Individual star twinkle — each star fades in/out at its own pace */
+@keyframes twinkle {
+  0%, 100% { opacity: 0; }
+  50%       { opacity: var(--peak-opacity, 0.6); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  @keyframes twinkle {
+    0%, 100% { opacity: var(--peak-opacity, 0.4); }
+  }
+}
+
+/* Resume page star background */
+.star-bg {
+  background-color: #0a0a0f;
+  background-image:
+    radial-gradient(1px 1px at 20px 30px, #fff, rgba(0,0,0,0)),
+    radial-gradient(1px 1px at 40px 70px, #fff, rgba(0,0,0,0)),
+    radial-gradient(2px 2px at 50px 160px, #DB2777, rgba(0,0,0,0)),
+    radial-gradient(1px 1px at 90px 40px, #fff, rgba(0,0,0,0)),
+    radial-gradient(1px 1px at 130px 80px, #fff, rgba(0,0,0,0)),
+    radial-gradient(2px 2px at 160px 120px, #DB2777, rgba(0,0,0,0));
+  background-repeat: repeat;
+  background-size: 200px 200px;
+}
+
+/* Pink text glow */
+.pink-glow {
+  text-shadow: 0 0 20px rgba(255, 45, 120, 0.4);
+}
+
+/* Gradient transition section */
+.gradient-transition {
+  background: linear-gradient(
+    to bottom,
+    #0a0507 0%,
+    #1e0810 20%,
+    #4a1028 42%,
+    #8a2448 62%,
+    #b03d5e 80%,
+    #c9506c 100%
+  );
+}
+
+/* Grounded section — landscape hills */
+.ground-curve {
+  border-radius: 100% 100% 0 0 / 100% 100% 0 0;
+  transform: scaleX(1.5);
+}
+
+/* Halifax skyline */
+.halifax-skyline-vector {
+  width: 100%;
+  height: auto;
+  max-height: 250px;
+  display: block;
+  fill: #0a0507;
+}
+
