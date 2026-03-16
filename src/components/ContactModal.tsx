@@ -61,7 +61,7 @@ export default function ContactModal() {
             <div className="flex items-center justify-between px-6 py-4 border-b border-white/10">
               <div className="flex items-center gap-3">
                 <div className="size-9 rounded-lg bg-[#DB2777]/20 border border-[#DB2777]/30 flex items-center justify-center">
-                  <img src="/logo.png" alt="" className="w-5 h-5 object-contain" />
+                  <img src={`${import.meta.env.BASE_URL}logo.png`} alt="" className="w-5 h-5 object-contain" />
                 </div>
                 <div>
                   <p className="text-white font-bold text-sm leading-none">Gabriella Gerges</p>

@@ -99,7 +99,7 @@ const projects = [
     subtitle: "Personal Portfolio Project · 2025",
     description:
       "AI-powered chatbot that answers questions about my resume using a hybrid retrieval system combining Neo4j graph traversal and OpenAI vector embeddings. Go backend, React + TailwindCSS + shadcn/ui frontend, CI/CD via GitHub Actions to DigitalOcean.",
-    image: "/chatbot.jpeg",
+    image: `${import.meta.env.BASE_URL}chatbot.jpeg`,
     skills: ["Go", "Neo4j", "OpenAI", "React", "TailwindCSS", "Docker", "GitHub Actions"],
     demo: "https://luxscious.github.io/portfolio-chat-bot/",
     github: "https://github.com/luxscious",
@@ -121,7 +121,7 @@ const projects = [
     subtitle: "SheHacks VI · 2022",
     description:
       "Full-stack web app built solo in a weekend hackathon. React frontend with Firebase auth, GitHub API integration, and Express backend.",
-    image: "/hive.jpg",
+    image: `${import.meta.env.BASE_URL}hive.jpg`,
     skills: ["React.js", "Firebase", "GitHub API", "Node.js", "Express.js"],
     demo: "https://devpost.com/software/hive-thl07v",
     github: null,
@@ -132,7 +132,7 @@ const projects = [
     subtitle: "Hack Western 8 · 2021",
     description:
       "Designed UI/UX, built the frontend, deployed to Google Cloud, and integrated Google Places and Time Zone APIs — 23 hours straight.",
-    image: "/risync.jpg",
+    image: `${import.meta.env.BASE_URL}risync.jpg`,
     skills: ["React", "Google Cloud", "Google Maps API", "JavaScript"],
     demo: "https://devpost.com/software/jet-lag-fixer",
     github: null,
@@ -191,14 +191,14 @@ export default function ResumePage() {
             <div className="relative shrink-0">
               <div className="absolute -inset-1 bg-[#DB2777] rounded-full blur opacity-25" />
               <div className="relative size-40 rounded-full overflow-hidden border-4 border-[#DB2777]/30">
-                <img src="/pfp.jpeg" alt="Gabriella Gerges" loading="eager" className="w-full h-full object-cover" />
+                <img src={`${import.meta.env.BASE_URL}pfp.jpeg`} alt="Gabriella Gerges" loading="eager" className="w-full h-full object-cover" />
               </div>
             </div>
             <div className="flex flex-col items-center md:items-start text-center md:text-left">
               <h1 className="text-white text-4xl md:text-5xl font-black leading-tight tracking-tighter mb-2">
                 Gabriella Gerges
               </h1>
-              <p className="font-pixel text-[10px] text-[#DB2777] mb-4 tracking-widest uppercase">
+              <p className="text-xs text-[#DB2777] mb-4 tracking-widest uppercase font-semibold">
                 Full Stack Software Engineer
               </p>
               <p className="text-slate-400 text-base max-w-2xl leading-relaxed">
@@ -272,7 +272,7 @@ export default function ResumePage() {
                     <div className="flex flex-wrap justify-between items-start gap-2 mb-1">
                       <h3 className="text-white text-lg font-bold">{job.title}</h3>
                       {job.current ? (
-                        <span className="font-pixel text-[9px] text-[#DB2777] bg-[#DB2777]/10 px-2 py-1 rounded shrink-0">
+                        <span className="text-[10px] font-bold text-[#DB2777] bg-[#DB2777]/10 px-2 py-1 rounded shrink-0 tracking-widest uppercase">
                           Present
                         </span>
                       ) : (
@@ -328,7 +328,7 @@ export default function ResumePage() {
                       href={item.demo}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center gap-1 text-[#DB2777] text-xs font-bold font-pixel hover:underline cursor-pointer"
+                      className="flex items-center gap-1 text-[#DB2777] text-xs font-bold tracking-widest uppercase hover:underline cursor-pointer"
                     >
                       VIEW PAPER <ExternalLink size={10} />
                     </a>
@@ -360,7 +360,7 @@ export default function ResumePage() {
                   )}
                   <div className={`p-6 relative z-20 flex flex-col grow ${proj.image ? "-mt-10" : ""}`}>
                     <h3 className="text-white text-xl font-bold mb-1">{proj.title}</h3>
-                    <p className="text-[#DB2777] text-[10px] font-pixel mb-3">{proj.subtitle}</p>
+                    <p className="text-[#DB2777] text-[10px] font-semibold tracking-widest uppercase mb-3">{proj.subtitle}</p>
                     <p className="text-slate-400 text-sm mb-4 leading-relaxed grow">{proj.description}</p>
                     <div className="flex flex-wrap gap-2 mb-4">
                       {proj.skills.map((s) => (
@@ -375,7 +375,7 @@ export default function ResumePage() {
                           href={proj.demo}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="text-[#DB2777] text-[10px] font-bold font-pixel flex items-center gap-1 hover:underline cursor-pointer"
+                          className="text-[#DB2777] text-[10px] font-bold tracking-widest uppercase flex items-center gap-1 hover:underline cursor-pointer"
                         >
                           VIEW DEMO <ExternalLink size={10} />
                         </a>
@@ -385,7 +385,7 @@ export default function ResumePage() {
                           href={proj.github}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="text-slate-500 text-[10px] font-bold font-pixel flex items-center gap-1 hover:text-slate-300 cursor-pointer"
+                          className="text-slate-500 text-[10px] font-bold tracking-widest uppercase flex items-center gap-1 hover:text-slate-300 cursor-pointer"
                         >
                           <Github size={10} /> GITHUB
                         </a>
@@ -433,7 +433,7 @@ export default function ResumePage() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {skills.map(({ label, value }) => (
                 <div key={label} className="p-4 bg-slate-900/40 border border-slate-800 rounded-xl">
-                  <p className="text-[#DB2777] text-xs font-bold font-pixel mb-2">{label}</p>
+                  <p className="text-[#DB2777] text-xs font-bold tracking-widest uppercase mb-2">{label}</p>
                   <p className="text-slate-300 text-sm leading-relaxed">{value}</p>
                 </div>
               ))}

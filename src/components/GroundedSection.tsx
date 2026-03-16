@@ -26,7 +26,7 @@ export default function GroundedSection() {
             <div className="absolute -inset-4 bg-[#DB2777]/20 rounded-full blur-2xl" />
             <div className="relative w-full max-w-sm aspect-[4/5] rounded-2xl overflow-hidden shadow-2xl border-4 border-white/20">
               <img
-                src="/openfeature.jpeg"
+                src={`${import.meta.env.BASE_URL}openfeature.jpeg`}
                 alt="Gabriella Gerges"
                 loading="lazy"
                 className="w-full h-full object-cover scale-[1.15]"

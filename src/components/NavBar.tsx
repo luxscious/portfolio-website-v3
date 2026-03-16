@@ -15,7 +15,7 @@ export default function NavBar() {
         {/* Logo — always goes home */}
         <TransitionLink to="/" className="flex items-center gap-3 group cursor-pointer">
           <div className="size-8 rounded bg-white/10 flex items-center justify-center overflow-hidden group-hover:bg-white/20 transition-colors duration-150">
-            <img src="/logo.png" alt="Gabriella Gerges logo" className="w-full h-full object-contain" />
+            <img src={`${import.meta.env.BASE_URL}logo.png`} alt="Gabriella Gerges logo" className="w-full h-full object-contain" />
           </div>
           <span className="text-xl font-bold tracking-tight text-white group-hover:text-[#DB2777] transition-colors duration-150">
             Gabriella Gerges

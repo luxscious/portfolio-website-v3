@@ -62,7 +62,7 @@ export default function AIExcellence() {
           <div className="relative w-full max-w-sm aspect-[4/5] rounded-2xl overflow-hidden border border-white/20 shadow-2xl">
             <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent z-10" />
             <img
-              src="/pfp.jpeg"
+              src={`${import.meta.env.BASE_URL}pfp.jpeg`}
               alt="Gabriella Gerges"
               className="w-full h-full object-cover scale-[1.15]"
               style={{ objectPosition: "50% 10%" }}

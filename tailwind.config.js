@@ -13,6 +13,7 @@ export default {
         "bg-light": "#fff5f8",
       },
       fontFamily: {
+        sans: ["Inter", "ui-sans-serif", "system-ui", "sans-serif"],
         display: ["Inter", "sans-serif"],
         pixel: ["'Press Start 2P'", "cursive"],
       },
