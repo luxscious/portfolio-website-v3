@@ -40,7 +40,7 @@ function Home() {
 export default function App() {
   return (
     <ModalProvider>
-    <BrowserRouter>
+    <BrowserRouter basename="/portfolio-website-v3">
       <Routes>
         <Route element={<Layout />}>
           <Route path="/" element={<Home />} />
